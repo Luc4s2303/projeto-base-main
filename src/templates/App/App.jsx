@@ -20,6 +20,9 @@ function App() {
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">Produtos</a>
+                <Link to="/produto"
+          className='btn btn-sm btn-warning'>
+        </Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">Quem Somos</a>
