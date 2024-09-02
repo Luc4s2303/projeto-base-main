@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom"
 import App from "../templates/App/App"
 import Home from "../templates/Home/Home"
-import Produtos from "../templates/Produtos/Produtos"
+import Produto from "../templates/Produto/Produto"
 
 import ForgotPass from "../templates/Login/ForgotPass"
 import Login from "../templates/Login/Login"
