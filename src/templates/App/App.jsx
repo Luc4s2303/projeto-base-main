@@ -17,11 +17,11 @@ function App() {
             
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link" href="#">Home</a>
+                <a className="nav-link" href="/">Home</a>
               </li>
               
               <li className="nav-item">
-                <a className="nav-link" href="/Produto">Produtos</a>
+                <a className="nav-link" href="/Cursos">Cursos</a>
                 
               </li>
               <li className="nav-item">

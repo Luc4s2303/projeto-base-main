@@ -1,9 +1,9 @@
 
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import './Produto.css'
+import './Cursos.css'
 
-function Produto() {
+function Cursos() {
   const [count, setCount] = useState(0)
 
   return (
@@ -18,11 +18,11 @@ function Produto() {
             
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link" href="#">Home</a>
+                <a className="nav-link" href="/">Home</a>
               </li>
               
               <li className="nav-item">
-                <a className="nav-link" href="/Produto">Produtos</a>
+                <a className="nav-link" href="/Cursos">Cursos</a>
                 
               </li>
               <li className="nav-item">
@@ -45,12 +45,7 @@ function Produto() {
     </div>
 
 
-
   )
-    
-  
-    
-  
 }
 
-export default Produto;
+export default Cursos;

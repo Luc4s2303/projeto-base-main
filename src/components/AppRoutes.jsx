@@ -1,7 +1,8 @@
 import { Routes, Route } from "react-router-dom"
 import App from "../templates/App/App"
 import Home from "../templates/Home/Home"
-import Produto from "../templates/Produto/Produto"
+import Cursos from "../templates/Cursos/Cursos"
+
 
 import ForgotPass from "../templates/Login/ForgotPass"
 import Login from "../templates/Login/Login"
@@ -22,7 +23,8 @@ const AppRoutes = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgotpass" element={<ForgotPass />} />
-        <Route path="/Produto" element={<Produto />} />
+        <Route path="/Cursos" element={<Cursos />} />
+     
 
         <Route path="/mensagem" element={<Mensagem />} />
         <Route path="/mensagemler" element={<MensagemLer />} />
