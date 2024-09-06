@@ -1,0 +1,59 @@
+
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import './Fundacao.css'
+import Logo from '../../assets/images/Logo1.png';
+
+function Fundacao () {
+    const [count, setCount] = useState(0)
+    return(
+        <div className='container'>
+        <nav className="navbar navbar-expand-lg menu">
+          <div className="container-fluid">
+          <img className="logo" src={Logo} alt="Logo" />
+            <a className="navbar-brand" href="#"></a>
+            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarNav">
+            
+              
+              <ul className="navbar-nav">
+                <li className="nav-item">
+                  <a className="nav-link" href="/">Home</a>
+                </li>
+                
+                <li className="nav-item">
+                  <a className="nav-link" href="/Cursos">Cursos</a>
+                  
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">Quem Somos</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">Fale Conosco</a>
+                </li>
+                <li className="nav-item">
+                    <div className="di">
+                <a className="nav-link" href="#">Login</a>
+                </div>
+                </li>
+              </ul>
+              
+            </div>
+          </div>
+        </nav>
+        <div className='div0'></div>
+        
+      
+       
+      
+      </div>
+  
+  
+  
+
+    )
+}
+
+export default Fundacao;
