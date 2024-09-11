@@ -7,6 +7,8 @@ import Logo from '../../assets/images/Logo1.png';
 function Fundacao () {
     const [count, setCount] = useState(0)
     return(
+      <>
+     
         <div className='container'>
         <nav className="navbar navbar-expand-lg menu">
           <div className="container-fluid">
@@ -31,11 +33,11 @@ function Fundacao () {
                   <a className="nav-link" href="#">Quem Somos</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">Fale Conosco</a>
+                  <a className="nav-link" href="#">Perfil</a>
                 </li>
                 <li className="nav-item">
                     <div className="di">
-                <a className="nav-link" href="#">Login</a>
+                <a className="nav-link" href="/PagLogin">Login</a>
                 </div>
                 </li>
               </ul>
@@ -45,13 +47,14 @@ function Fundacao () {
         </nav>
         <div className='div0'></div>
         
-      
+       
        
       
       </div>
   
-  
-  
+      <div className='div4'></div>
+     
+  </>
 
     )
 }
