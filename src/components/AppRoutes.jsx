@@ -3,6 +3,7 @@ import App from "../templates/App/App"
 import Home from "../templates/Home/Home"
 import Cursos from "../templates/Cursos/Cursos"
 import PagLogin from "../templates/PagLogin/PagLogin"
+import PagPerfil from "../templates/PagPerfil/PagPerfil"
 
 import ForgotPass from "../templates/Login/ForgotPass"
 import Login from "../templates/Login/Login"
@@ -25,6 +26,7 @@ const AppRoutes = () => {
         <Route path="/forgotpass" element={<ForgotPass />} />
         <Route path="/Cursos" element={<Cursos />} />
         <Route path="/PagLogin" element={<PagLogin />} />
+        <Route path="/PagPerfil" element={<PagPerfil />} />
 
         <Route path="/mensagem" element={<Mensagem />} />
         <Route path="/mensagemler" element={<MensagemLer />} />

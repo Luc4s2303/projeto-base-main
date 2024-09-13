@@ -9,7 +9,7 @@ function Fundacao () {
     return(
       <>
      
-        <div className='container'>
+        <div className=''>
         <nav className="navbar navbar-expand-lg menu">
           <div className="container-fluid">
           <img className="logo" src={Logo} alt="Logo" />
@@ -33,7 +33,7 @@ function Fundacao () {
                   <a className="nav-link" href="#">Quem Somos</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">Perfil</a>
+                  <a className="nav-link" href="/PagPerfil">Perfil</a>
                 </li>
                 <li className="nav-item">
                     <div className="di">

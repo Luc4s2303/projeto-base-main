@@ -27,7 +27,7 @@ function PagLogin(){
             <h1 className='texto11'>Sou aluno</h1>
             <p className='texto12'>Faça login como aluno</p>
             <img src={imagemtlapis} className='imagemlapis'alt="" />
-            <p className='texto13'>Criar uma noca conta como aluno</p>
+            <p className='texto13'>Criar uma nova conta como aluno</p>
         </div>
         
         
