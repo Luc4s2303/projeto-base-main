@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import Fundacao from '../Funcacao.jsx/Fundacao';
 import Fundo from '../../assets/images/fundo.jpg'; 
-import perfil from '../../assets/images/fotoperfil.jpg'; 
+import perfil from '../../assets/images/fotoperfil.jpg';
+import Fundacao2 from '../Fundacao2/Fundacao'; 
 
-const ProfilePage = () => {
+const PagPerfilProf = () => {
   const [profile, setProfile] = useState({
     photo: perfil,
     name: 'Luíza Vilela Silva',
@@ -44,7 +44,7 @@ const ProfilePage = () => {
 
   return (
      <>
-    <Fundacao />
+    <Fundacao2 />
     <div style={styles.container}>
      
       <div style={styles.profileCard}>
@@ -188,4 +188,4 @@ const styles = {
   },
 };
 
-export default ProfilePage;
+export default PagPerfilProf;

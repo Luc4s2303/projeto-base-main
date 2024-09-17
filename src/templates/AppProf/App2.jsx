@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Fundacao from '../Funcacao.jsx/Fundacao';
+import Fundacao2 from '../Fundacao2/Fundacao';
 import Fundo from '../../assets/images/fundo.jpg'; 
 import perfil from '../../assets/images/fotoperfil.jpg'; 
 
@@ -44,7 +44,7 @@ const ProfilePage = () => {
 
   return (
      <>
-    <Fundacao />
+    <Fundacao2 />
     <div style={styles.container}>
      
       <div style={styles.profileCard}>

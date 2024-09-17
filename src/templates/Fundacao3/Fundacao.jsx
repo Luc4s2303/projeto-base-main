@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import './Fundacao.css'
 import Logo from '../../assets/images/Logo1.png';
 
-function Fundacao () {
+function Fundacao2 () {
     const [count, setCount] = useState(0)
     return(
       <>
@@ -22,23 +22,14 @@ function Fundacao () {
               
               <ul className="navbar-nav">
 
-                <li className="nav-item">
-                  <a className="nav-link" href="/">Home</a>
-                </li>
-
+            
                
-                
                 <li className="nav-item">
-                  <a className="nav-link" href="/Cursos">Cursos</a>
-                  
+                  <a className="nav-link" href="/PagPerfilProf">Perfil</a>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">Quem Somos</a>
-                </li>
-               
                 <li className="nav-item">
                     <div className="di">
-                <a className="nav-link" href="/PagLogin">Login</a>
+                <a className="nav-link" href="/PagProfessor">Área Aluno</a>
                 </div>
                 </li>
               </ul>
@@ -60,4 +51,4 @@ function Fundacao () {
     )
 }
 
-export default Fundacao;
+export default Fundacao2;
