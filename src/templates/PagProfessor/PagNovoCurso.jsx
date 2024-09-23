@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Fundacao2 from '../Fundacao2/Fundacao';
 
 const NewCourse = () => {
   const navigate = useNavigate();
@@ -41,6 +42,8 @@ const NewCourse = () => {
   };
 
   return (
+    <>
+    <Fundacao2 />
     <div style={formContainerStyle}>
       <h1>Criar Novo Curso</h1>
 
@@ -119,7 +122,9 @@ const NewCourse = () => {
 
       <button onClick={handleSubmit} style={submitButtonStyle}>Publicar Curso</button>
     </div>
+    </>
   );
+
 };
 
 // Estilos

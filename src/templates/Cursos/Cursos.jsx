@@ -2,14 +2,35 @@ import React, { useState } from 'react';
 import Fundacao from '../Funcacao.jsx/Fundacao';
 
 const coursesData = [
-  { id: 1, title: 'React Básico', subject: 'React', teacher: 'John Doe', description: 'Aprenda os fundamentos de React.' },
-  { id: 2, title: 'JavaScript Avançado', subject: 'JavaScript', teacher: 'Jane Doe', description: 'Aprofunde-se no JavaScript.' },
-  { id: 3, title: 'HTML e CSS', subject: 'HTML/CSS', teacher: 'Carlos Silva', description: 'Dominando HTML e CSS.' },
-  { id: 4, title: 'React Avançado', subject: 'React', teacher: 'Ana Maria', description: 'Componentes e hooks avançados em React.' },
+  { id: 1, title: 'Introdução à programação', subject: 'Tecnologia da informação', teacher: 'Rogério', description: 'Aprenda os fundamentos da programação com linguagens como Python e JavaScript..' },
+  { id: 2, title: 'Desenvolvimento Web', subject: 'Tecnologia da informação', teacher: 'Rogério', description: 'Crie sites dinâmicos e interativos utilizando HTML, CSS, e JavaScript.'},
+  { id: 3, title: 'Cibersegurança', subject: 'Tecnologia da informação', teacher: 'Rogério', description: 'Conheça as melhores práticas para proteger dados e sistemas de ataques digitais.' },
+
+  { id: 4, title: 'Iniciação ao Empreendedorismo', subject: 'Empreendedorismo e Negócios', teacher: 'Silvia', description: ' Entenda como transformar ideias em negócios e lançar sua própria empresa.' },
+  { id: 5, title: 'Marketing Digital', subject: 'Empreendedorismo e Negócios', teacher: 'Silvia', description: 'Aprenda estratégias para promover negócios e produtos online, utilizando SEO, redes sociais e e-mail marketing.' },
+  { id: 6, title: 'Gestão Financeira', subject: 'Empreendedorismo e Negócios', teacher: 'Silvia', description: 'Desenvolva habilidades para gerir as finanças de pequenas e grandes empresas.' }, 
+  { id: 7, title: 'Plano de negócios', subject: 'Empreendedorismo e Negócios', teacher: 'Silvia', description: 'Saiba como elaborar um plano de negócios eficiente para atrair investidores.' },
+  
+  { id: 8, title: 'Gestão de tempo', subject: 'Desenvolvimento pessoal', teacher: 'Antônio', description: 'É um curso.' },
+  { id: 9, title: 'Inteligência emocional', subject: 'Desenvolvimento pessoal', teacher: 'Antônio', description: 'É um curso.' },
+  { id: 10, title: 'Técnicas de comunicação', subject: 'Desenvolvimento pessoal', teacher: 'Antônio', description: 'É um curso.' },
+  { id: 11, title: 'Liderança e Gestão de equipe', subject: 'Desenvolvimento pessoal', teacher: 'Antônio', description: 'É um curso.' },
+
+  { id: 12, title: 'Matemática Básica', subject: 'Ciências Exatas', teacher: 'Susane', description: 'É um curso.' },
+  { id: 13, title: 'Física para Iniciantes', subject: 'Ciências Exatas', teacher: 'Susane', description: 'É um curso.' },
+  { id: 14, title: 'Introdução à Estatística', subject: 'Ciências Exatas', teacher: 'Susane', description: 'É um curso.' },
+  { id: 15, title: 'Química Geral', subject: 'Ciências Exatas', teacher: 'Susane', description: 'É um curso.' }, 
+  
+  {id: 16, title: 'Fotografia Digital', subject: 'Artes e Criatividade', teacher: 'Carla', description: 'É um curso.' },
+  {id: 17, title: 'Desehno e ilustração', subject: 'Artes e Criatividade', teacher: 'Carla', description: 'É um curso.' },
+  {id: 18, title: 'Producão de Vídeo', subject: 'Artes e Criatividade', teacher: 'Carla', description: 'É um curso.' },
+  {id: 19, title: 'Design Gráfico', subject: 'Artes e Criatividade', teacher: 'Carla', description: 'É um curso.' },
+
+  
   // Adicionar mais cursos conforme necessário
 ];
 
-const subjects = ['Todos', 'React', 'JavaScript', 'HTML/CSS'];
+const subjects = ['Todos', 'Tecnologia da informação', 'Empreendedorismo e Negócios', 'Desenvolvimento pessoal','Ciências Exatas','Artes e Criatividade'];
 
 const App = () => {
   const [selectedSubject, setSelectedSubject] = useState('Todos');
@@ -56,7 +77,7 @@ const App = () => {
             <div style={courseInfoStyle}>
               <h4 style={{ margin: '0 0 10px 0' }}>{course.title}</h4>
               <p style={{ margin: 0 }}>{course.subject}</p>
-              <p style={{ margin: 0 }}>Professor: {course.teacher}</p>
+              <p style={{ margin: 0 }}>Professor(a): {course.teacher}</p>
             </div>
             <button style={buttonStyle}>Ver Curso</button>
           </div>
@@ -93,6 +114,7 @@ const listItemStyle = {
   margin: '10px 0',
   cursor: 'pointer',
   boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+
 };
 
 const courseInfoStyle = {

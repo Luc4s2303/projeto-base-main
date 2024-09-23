@@ -28,6 +28,7 @@ const TeacherProfile = () => {
   return (
     <>
     <Fundacao2 />
+    <div className="container">
     <div style={containerStyle}>
       <h1>Perfil do Professor</h1>
       <button onClick={handleNewCourse} style={newCourseButtonStyle}>
@@ -51,6 +52,7 @@ const TeacherProfile = () => {
       ) : (
         <p>Nenhum curso publicado.</p>
       )}
+    </div>
     </div>
     </>
   );

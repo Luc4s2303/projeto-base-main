@@ -12,7 +12,9 @@ function Fundacao () {
         <div className=''>
         <nav className="navbar navbar-expand-lg menu">
           <div className="container-fluid">
+          <Link to={"/"}>
           <img className="logo" src={Logo} alt="Logo" />
+          </Link>
             <a className="navbar-brand" href="#"></a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
@@ -33,7 +35,7 @@ function Fundacao () {
                   
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">Quem Somos</a>
+                  <a className="nav-link" href="/PagQuemSomos">Quem Somos</a>
                 </li>
                
                 <li className="nav-item">

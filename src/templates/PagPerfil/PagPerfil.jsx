@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Fundacao from '../Funcacao.jsx/Fundacao';
+import Fundacao3 from '../Fundacao3/Fundacao';
 import Fundo from '../../assets/images/fundo.jpg'; 
 import perfil from '../../assets/images/fotoperfil.jpg'; 
 
 const ProfilePage = () => {
   const [profile, setProfile] = useState({
-    photo: perfil,
-    name: 'Luíza Vilela Silva',
+  
+    name: 'Carlos Antônio da Silva',
     email: 'luiza.vilelasilva@gmail.com',
     password: '********',
     age: 22,
@@ -44,7 +44,7 @@ const ProfilePage = () => {
 
   return (
      <>
-    <Fundacao />
+    <Fundacao3 />
     <div style={styles.container}>
      
       <div style={styles.profileCard}>

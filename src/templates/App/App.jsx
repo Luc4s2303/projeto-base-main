@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './App.css'
 import Logo2 from '../../assets/images/Logo2.png';
 import Fundacao from '../Funcacao.jsx/Fundacao';
-import imagem1 from '../../assets/images/imagem1.png';
+import imagem1 from '../../assets/images/banner.png';
 import imagemmulher from '../../assets/images/imagemmulher.jpg';
 import imagemmulher2 from '../../assets/images/imagemmulher1.jpg';
 import Footer from '../Footer/Footer';
@@ -17,9 +17,9 @@ function App() {
       
       
       <div className='container'>
-      <div className='div3'> <div className='div5'> <p className='texto1'>Venha estudar conosco!</p> <p className='texto2'>Dezenas de cursos completamente gratuitos, faça agora mesmo sua inscrição!</p></div>
+  
       <img className="imagem1" src={imagem1} alt="imagem1" />
-      </div></div>
+      </div>
 
       <div className="container">
         <div className='div7'>
