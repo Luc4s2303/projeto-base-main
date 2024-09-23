@@ -47,8 +47,8 @@ const App = () => {
   
     <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: '#f8f9fa' }}>
       {/* Lista de Materias */}
-      <div style={{ width: '20%', padding: '20px', borderRight: '2px solid #ddd', backgroundColor: '#343a40', color: '#fff' }}>
-        <h3 style={{ color: '#fff', marginBottom: '20px' }}>Matérias</h3>
+      <div style={{ width: '20%', padding: '20px', borderRight: '2px solid #ddd', backgroundColor: '#f8f9fa', color: '#fff' }}>
+        <h3 style={{ color: '#000', marginBottom: '20px' }}>Matérias</h3>
         <ul style={{ padding: 0 }}>
           {subjects.map(subject => (
             <li
@@ -58,9 +58,9 @@ const App = () => {
                 margin: '10px 0',
                 listStyle: 'none',
                 padding: '10px',
-                backgroundColor: selectedSubject === subject ? '#007bff' : '#6c757d',
+                backgroundColor: selectedSubject === subject ? '#6c757d' : '#e9ecef',
                 borderRadius: '5px',
-                color: '#fff',
+                color: selectedSubject === subject ? '#fff' : '#343a40',
                 textAlign: 'center',
               }}
               onClick={() => setSelectedSubject(subject)}
@@ -123,7 +123,7 @@ const courseInfoStyle = {
 
 const buttonStyle = {
   padding: '10px 20px',
-  backgroundColor: '#007bff',
+  backgroundColor: '#6c757d',
   color: 'white',
   border: 'none',
   borderRadius: '5px',

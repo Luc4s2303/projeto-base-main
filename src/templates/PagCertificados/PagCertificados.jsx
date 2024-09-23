@@ -141,7 +141,7 @@ const courseInfoStyle = {
 
 const buttonStyle = {
   padding: '10px 20px',
-  backgroundColor: '#007bff',
+  backgroundColor: '#6c757d',
   color: 'white',
   border: 'none',
   borderRadius: '5px',
@@ -173,3 +173,5 @@ const modal = {
 };
 
 export default App;
+
+//#f8f9fa

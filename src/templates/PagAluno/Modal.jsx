@@ -22,7 +22,7 @@ const styles = {
     maxWidth: "90%",
   },
   closeButton: {
-    backgroundColor: "#007bff",
+    backgroundColor: "#6c757d",
     color: "white",
     padding: "10px",
     border: "none",

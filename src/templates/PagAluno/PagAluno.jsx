@@ -14,10 +14,10 @@ const styles = {
   sidebar: {
     width: "250px",
     padding: "20px",
-    backgroundColor: "#343a40",
+    backgroundColor: "#f8f9fa",
     borderRight: "1px solid #ccc",
     height: "815px",
-    color: 'white',
+    color: 'black',
   },
   sidebarHeader: {
     fontSize: "18px",
@@ -32,14 +32,14 @@ const styles = {
   sidebarItem: {
     padding: "12px",
     cursor: "pointer",
-    backgroundColor: "#6c757d",
+    backgroundColor: "#e9ecef",
     marginBottom: "5px",
     transition: "background-color 0.3s ease",
     borderRadius: "5px",
-    color: "white",
+    color: "black",
   },
   sidebarItemActive: {
-    backgroundColor: "#007bff",
+    backgroundColor: "#6c757d",
   
     color: "white"
   },
@@ -57,7 +57,7 @@ const styles = {
   },
   button: {
     padding: "10px 20px",
-    backgroundColor: "#007bff",
+    backgroundColor: "#6c757d",
     color: "white",
     border: "none",
     borderRadius: "5px",
