@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Fundacao2 from '../Fundacao2/Fundacao';
+import Fundo from '../../assets/images/fundo1.jpg'; 
 
 const TeacherProfile = () => {
   const navigate = useNavigate();
@@ -23,8 +24,24 @@ const TeacherProfile = () => {
 
   const handleNewCourse = () => {
     navigate('/new-course');
-  };
+  }; 
+  useEffect(() => {
+    document.body.style.backgroundImage = `url(${Fundo})`;
+    document.body.style.backgroundSize = 'cover';
+    document.body.style.backgroundRepeat = 'no-repeat';
+    document.body.style.height = 'px';
+    
+    // Limpa o estilo quando o componente desmonta
+    return () => {
+      document.body.style.backgroundImage = '';
+      document.body.style.backgroundSize = '';
+      document.body.style.backgroundPosition = '';
+      document.body.style.backgroundRepeat = '';
+      document.body.style.height = '';
+    };
+  }, []);
 
+  
   return (
     <>
     <Fundacao2 />

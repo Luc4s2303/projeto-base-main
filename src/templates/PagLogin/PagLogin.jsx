@@ -153,7 +153,7 @@ const LoginPage = () => {
 
 const styles = {
   container: {
-    height: '815px',
+    height: '835px',
     backgroundImage: `url(${backgroundImage})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',

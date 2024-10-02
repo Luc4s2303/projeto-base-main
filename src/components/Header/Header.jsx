@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import App from "../../templates/App/App";
 
 const Header = ({goto, title, logo}) => {
 
@@ -6,7 +7,7 @@ const Header = ({goto, title, logo}) => {
         <div className="
             d-flex justify-content-between align-content-center 
             p-3 border-bottom shadow rounded">
-            <Link to={goto} className="btn btn-info shadow">Voltar</Link>
+            <Link to={"/"} className="btn btn-info shadow">Voltar</Link>
             <div>
                 <span className="fw-bold h2">{title}</span>
             </div>

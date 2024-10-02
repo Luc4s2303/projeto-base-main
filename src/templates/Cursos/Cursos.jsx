@@ -93,7 +93,7 @@ const App = () => {
             <p><strong>Matéria:</strong> {selectedCourse.subject}</p>
             <p><strong>Professor:</strong> {selectedCourse.teacher}</p>
             <p><strong>Descrição:</strong> {selectedCourse.description}</p>
-            <button style={buttonStyle} onClick={() => alert('Inscrição realizada!')}>Inscrever-se</button>
+            <button style={buttonStyle} onClick={() => alert('Para se inscrever em um curso você precisa estar cadastrado!!')}>Inscrever-se</button>
             <button onClick={() => setSelectedCourse(null)} style={{ marginLeft: '10px', ...buttonStyle }}>Fechar</button>
           </div>
         </div>

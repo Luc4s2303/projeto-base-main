@@ -39,16 +39,15 @@ function Fundacao () {
                 </li>
                
                 <li className="nav-item">
-                    <div className="di">
-                <a className="nav-link" href="/PagLogin">Login</a>
-                </div>
+                <a className="nav-link" href="/PagLogin">Login</a>                
                 </li>
+                
               </ul>
               
             </div>
           </div>
         </nav>
-        <div className='div0'></div>
+       
         
        
        

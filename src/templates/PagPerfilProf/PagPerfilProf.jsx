@@ -28,9 +28,8 @@ const PagPerfilProf = () => {
   useEffect(() => {
     document.body.style.backgroundImage = `url(${Fundo})`;
     document.body.style.backgroundSize = 'cover';
-    document.body.style.backgroundPosition = 'center';
     document.body.style.backgroundRepeat = 'no-repeat';
-    document.body.style.height = '750px';
+    document.body.style.height = 'px';
     
     // Limpa o estilo quando o componente desmonta
     return () => {
@@ -134,7 +133,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.85)', // Fundo branco com opacidade para destacar o conteúdo
+    backgroundColor: 'rgb(255, 255, 255)',
     padding: '20px',
     borderRadius: '8px',
     boxShadow: '0px 0px 15px rgba(0, 0, 0, 0.1)',

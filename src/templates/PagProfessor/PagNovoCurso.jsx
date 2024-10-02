@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Fundacao2 from '../Fundacao2/Fundacao';
+import Fundo from '../../assets/images/fundo1.jpg'; 
 
 const NewCourse = () => {
   const navigate = useNavigate();
@@ -40,10 +41,24 @@ const NewCourse = () => {
       alert('Preencha todos os campos e adicione pelo menos uma aula.');
     }
   };
+  useEffect(() => {
+    document.body.style.backgroundImage = `url(${Fundo})`;
+    document.body.style.backgroundSize = 'cover';
+    document.body.style.backgroundRepeat = 'no-repeat';
+    document.body.style.height = 'px';
+    
+    // Limpa o estilo quando o componente desmonta
+    return () => {
+      document.body.style.backgroundImage = '';
+      document.body.style.backgroundSize = '';
+      document.body.style.backgroundPosition = '';
+      document.body.style.backgroundRepeat = '';
+      document.body.style.height = '';
+    };
+  }, []);
 
   return (
     <>
-    <Fundacao2 />
     <div style={formContainerStyle}>
       <h1>Criar Novo Curso</h1>
 
@@ -134,6 +149,8 @@ const formContainerStyle = {
   margin: '0 auto',
   backgroundColor: '#f9f9f9',
   borderRadius: '5px',
+  position: 'relative',
+  top: '35px',
 };
 
 const inputStyle = {
