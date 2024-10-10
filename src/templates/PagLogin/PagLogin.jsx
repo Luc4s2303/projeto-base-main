@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, {useState, useEffect} from 'react';
+import { Formik } from 'formik';
+import axios from 'axios';
 import backgroundImage from '../../assets/images/fundo2.jpg';// Imagem de fundo
 import professorImage from '../../assets/images/imagemchapeu.jpg'; // Imagem para o botão do professor
 import alunoImage from '../../assets/images/imagemlapis.jpg'; // Imagem para o botão do aluno
@@ -7,6 +9,23 @@ import "./PagLogin.css"
 import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
+
+  const [dados, setDados] = useState({})
+    const [clicou, setClicou] = useState(false)
+
+    function enviarDados(){
+        axios.post('http://localhost:8080/cadProfessor', 
+            dados
+        ).then(response => console.log(response))
+        .then(dados => alert('Dados enviados com sucesso'))
+        .catch(error => console.log(error))
+    }
+    
+    useEffect(()=>{
+       clicou ? enviarDados() : console.log('app no ar')
+       return (()=>setClicou(false))
+    }, [clicou])
+
   const navigate = useNavigate();
   
   const [isStudentModalOpen, setStudentModalOpen] = useState(false);
@@ -53,208 +72,147 @@ const LoginPage = () => {
 
 <>
 <Fundacao />
-    <div style={styles.container}>   
+   <div>
+        <h1>Cadastrar Professor</h1>
+        <Formik
+            initialValues={{
+                id: 0,
+                Nome: '',
+                Email: '',
+                Senha: '',
+                Certificado: null,
+                Endereco: '',
+                CPF: '',
+                statusProf: 'ATIVO'
+            }}
+            onSubmit={(values, actions) => {
 
-      <div style={styles.main}>
-        {/* Botão para o professor */}
-        <div style={styles.card} >
-        <h2 >Sou professor</h2>
-        <img src={professorImage} alt="Professor" style={styles.image} onClick={openTeacherModalLogin }/>
-        <p className='p1' onClick={openTeacherModal}>Crie uma conta como professor</p>
-        </div>
+                if(values.Nome.length > 0){
+                        setTimeout(() => {
+                        setDados({
+                            Nome: values.Nome,
+                            Email: values.Email,
+                            Senha: values.Senha,
+                            Certificado: values.Certificado,
+                            Endereco: values.Endereco,
+                            CPF: values.CPF,
+                            statusProf: values.statusProf
+                        })
+                        setClicou(true)
+                        // alert(JSON.stringify(values, null, 2));
+                        // console.log(JSON.stringify(values, null, 2));
+                        // actions.setSubmitting(false);
+                    }, 1000);
+                } else {
+                    alert('Favor preencher informações!')
+                }
+                
+            }}
+        > 
+            {props => (
+                <form onSubmit={props.handleSubmit}>
+                    <div>
+                        <input
+                            type="number"
+                            onChange={props.handleChange}
+                            onBlur={props.handleBlur}
+                            value={props.values.id}
+                            placeholder='id'
+                            name="id"
+                            disabled
+                        />
+                        {props.errors.id && <div id="feedback">{props.errors.id}</div>}
+                    </div>
 
-        {/* Botão para o aluno */}
-        <div style={styles.card} >
-        <h2>Sou aluno</h2>
-        <img src={alunoImage} alt="Aluno" style={styles.image}  onClick={openStudentModalLogin}/>
-        <p className='p1' onClick={openStudentModal} >Crie uma conta como aluno</p>
-        
-        </div>
-      </div>
+                    <div>
+                        <input
+                            type="text"
+                            onChange={props.handleChange}
+                            onBlur={props.handleBlur}
+                            value={props.values.Nome}
+                            placeholder="Seu nome"
+                            name="Nome"
+                        />
+                        {props.errors.Nome && <div id="feedback">{props.errors.Nome}</div>}
+                    </div>
 
-      {/* Modal de cadastro para aluno */}
-      {isStudentModalOpen && (
-        <div style={styles.modalOverlay}>
-          <div style={styles.modal}>
-            <h2>Cadastro Aluno</h2>
-            <input type="text" placeholder="Nome" style={styles.input} />
-            <input type="email" placeholder="Email" style={styles.input} />
-            <input type="text" placeholder="Telefone" style={styles.input} />
-            <input type="password" placeholder="Senha" style={styles.input} />
-            <button onClick={proxpagina2} style={styles.button}>Entrar</button>
-          </div>
-        </div>
-      )}
-
-      {/* Modal de cadastro para professor */}
-      {isTeacherModalOpen && (
-        <div style={styles.modalOverlay}>
-          <div style={styles.modal}>
-            <h2>Cadastro Professor</h2>
-            <input type="text" placeholder="Nome" style={styles.input} />
-            <input type="email" placeholder="Email" style={styles.input} />
-            <input type="password" placeholder="Senha" style={styles.input} />
-            <input type="text" placeholder="Endereço" style={styles.input} />
-            <input type="text" placeholder="CPF" style={styles.input} />
-            <input type="text" placeholder="Telefone" style={styles.input} />
-            <label>Certificado</label>
-            <input type="file"  accept=".pdf" style={styles.inputStyle}/>
-            <button onClick={openAvisoProfessor} style={styles.button}>Entrar</button>
-            
-          </div>
-        </div>
-      )}
-
-       {/* Modal de login para aluno */}
-       {isStudentModalOpenLogin && (
-        <div style={styles.modalOverlay}>
-          <div style={styles.modal}>
-            <h2>Login Aluno</h2>
-            <input type="email" placeholder="Email" style={styles.input} />
-            <input type="password" placeholder="Senha" style={styles.input} />
-            <button onClick={proxpagina2} style={styles.button}>Entrar</button>
-          </div>
-        </div>
-      )}
-
-      {/* Modal de login para professor */}
-      {isTeacherModalOpenLogin && (
-        <div style={styles.modalOverlay}>
-          <div style={styles.modal}>
-            <h2>Login Professor</h2>
-            <input type="email" placeholder="Email" style={styles.input} />
-            <input type="password" placeholder="Senha" style={styles.input} />
-            <input type="text" placeholder="CPF" style={styles.input} />
-            <button onClick={proxpagina} style={styles.button} href="/PagProfessor" >Entrar</button>
-            
-          </div>
-        </div>
-      )}
-
-      {/* Modal de login para professor */}
-      {isAvisoProfessor && (
-        <div style={styles.modalOverlay}>
-          <div style={styles.modal}>
-            <h2 style={styles.texto}>A equipe da Fundação Athena irá verificar seu certificado.</h2>
-            <h2 style={styles.texto}>A validação será enviada por em e-mail em até 2 dias úteis.</h2>
-            <button onClick={closeAvisoProfessor} style={styles.button} href="/PagProfessor">Fechar</button>
-            
-          </div>
-        </div>
-      )}
+                    <div>
+                        <input
+                            type="text"
+                            onChange={props.handleChange}
+                            onBlur={props.handleBlur}
+                            value={props.values.Email}
+                            name="Email"
+                            placeholder="E-mail"
+                        />
+                        {props.errors.Email && <div id="feedback">{props.errors.Email}</div>}
+                    </div>
+                    <div>
+                        <input
+                            type="text"
+                            onChange={props.handleChange}
+                            onBlur={props.handleBlur}
+                            value={props.values.Senha}
+                            name="Senha"
+                            placeholder="Senha"
+                        />
+                        {props.errors.Senha && <div id="feedback">{props.errors.Senha}</div>}
+                    </div>
+                    <div>
+                        <input
+                            type="image"
+                            onChange={props.handleChange}
+                            onBlur={props.handleBlur}
+                            value={props.values.Certificado}
+                            name="Certificado"
+                            placeholder="Foto do Certificado"
+                            hidden
+                        />
+                        {props.errors.Certificado && <div id="feedback">{props.errors.Certificado}</div>}
+                    </div>
+                    <div>
+                        <input
+                            type="text"
+                            onChange={props.handleChange}
+                            onBlur={props.handleBlur}
+                            value={props.values.Endereco}
+                            name="Endereço"
+                            placeholder="Seu endereço"
+                        />
+                        {props.errors.Endereco && <div id="feedback">{props.errors.Endereco}</div>}
+                    </div>
+                    <div>
+                        <input
+                            type="text"
+                            onChange={props.handleChange}
+                            onBlur={props.handleBlur}
+                            value={props.values.CPF}
+                            name="CPF"
+                            placeholder="CPF"
+                        />
+                        {props.errors.CPF && <div id="feedback">{props.errors.CPF}</div>}
+                    </div>
+                    <div>
+                        <select
+                            type="text"
+                            onChange={props.handleChange}
+                            onBlur={props.handleBlur}
+                            value={props.values.statusProf}
+                            name="statusProf"
+                        >
+                            <option>ATIVO</option>
+                            <option>INATIVO</option>
+                        </select>
+                        {props.errors.statusProf && <div id="feedback">{props.errors.statusProf}</div>}
+                    </div>
+                    
+                    <button type="submit">SALVAR</button>
+                </form>
+            )}
+        </Formik>
     </div>
-    </>
+  </>
   );
-};
-
-
-
-
-
-const styles = {
-  container: {
-    height: '835px',
-    backgroundImage: `url(${backgroundImage})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-   
-  },
-  logo: {
-    fontSize: '24px',
-    fontWeight: 'bold',
-  },
-  nav: {
-    display: 'flex',
-    gap: '20px',
-  },
-  navLink: {
-    textDecoration: 'none',
-    color: '#333',
-    fontWeight: 'bold',
-  },
-  main: {
-    display: 'flex',
-    justifyContent: 'center',
-    gap: '50px',
-    marginTop: '100px',
-  },
-  card: {
-    backgroundColor: '#fff',
-    padding: '20px',
-    borderRadius: '8px',
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-    width: '350px',
-    textAlign: 'center',
-    cursor: 'pointer',
-    height: '400px',
-  },
-  image: {
-    width: '100px',
-    height: '100px',
-    marginBottom: '20px',
-  },
-  modalOverlay: {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    width: '100vw',
-    height: '100vh',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  modal: {
-    backgroundColor: '#fff',
-    padding: '30px',
-    borderRadius: '8px',
-    width: '400px',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  input: {
-    width: '100%',
-    padding: '10px',
-    margin: '10px 0',
-    borderRadius: '4px',
-    border: '1px solid #ccc',
-  },
-  button: {
-    backgroundColor: '#333',
-    color: '#fff',
-    padding: '10px 20px',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
-    
-    
-  },
-  image: {width: "200px",
-          margin: "30px",
-    
-  },
-  texto: {
-    color: '',
-    textAlign: 'center',
-    lineHeight: '1.4',
-
-  },
-  certificado: {
-    fontSize: '30px'
-    
-
-  },
-  inputStyle: {
-    width: '100%',
-    padding: '10px',
-    marginBottom: '10px',
-    borderRadius: '5px',
-    border: '1px solid #ccc',
-  },
 
   
 };
