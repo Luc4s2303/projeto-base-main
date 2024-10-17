@@ -10,19 +10,29 @@ import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
 
-  const [dados, setDados] = useState({})
+  const [dados, setDados] = useState([])
     const [clicou, setClicou] = useState(false)
 
     function enviarDados(){
+        console.log(dados)
         axios.post('http://localhost:8080/cadProfessor', 
-            dados
+            {data: dados,
+                mode: 'no-cors',
+                headers: {                  
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Headers": "Origin, Content-Type, Accept, Authorization", 
+                    "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE" ,
+                    "Content-Type": "application/json;charset=UTF-8"                   
+                },
+            }
         ).then(response => console.log(response))
         .then(dados => alert('Dados enviados com sucesso'))
         .catch(error => console.log(error))
     }
     
     useEffect(()=>{
-       clicou ? enviarDados() : console.log('app no ar')
+        console.log(dados)
+       clicou ? enviarDados() : console.log(dados)
        return (()=>setClicou(false))
     }, [clicou])
 
@@ -77,27 +87,28 @@ const LoginPage = () => {
         <Formik
             initialValues={{
                 id: 0,
-                Nome: '',
-                Email: '',
-                Senha: '',
-                Certificado: null,
-                Endereco: '',
-                CPF: '',
+                nome: '',
+                email: '',
+                senha: '',
+                certificado: null,
+                endereco: '',
+                cpf: '',
                 statusProf: 'ATIVO'
             }}
             onSubmit={(values, actions) => {
 
-                if(values.Nome.length > 0){
+                if(values.nome.length > 0){
                         setTimeout(() => {
                         setDados({
-                            Nome: values.Nome,
-                            Email: values.Email,
-                            Senha: values.Senha,
-                            Certificado: values.Certificado,
-                            Endereco: values.Endereco,
-                            CPF: values.CPF,
+                            nome: values.nome,
+                            email: values.email,
+                            senha: values.senha,
+                            certificado: values.certificado,
+                            endereco: values.endereco,
+                            cpf: values.cpf,
                             statusProf: values.statusProf
                         })
+                        console.log(dados)
                         setClicou(true)
                         // alert(JSON.stringify(values, null, 2));
                         // console.log(JSON.stringify(values, null, 2));
@@ -129,11 +140,11 @@ const LoginPage = () => {
                             type="text"
                             onChange={props.handleChange}
                             onBlur={props.handleBlur}
-                            value={props.values.Nome}
+                            value={props.values.nome}
                             placeholder="Seu nome"
-                            name="Nome"
+                            name="nome"
                         />
-                        {props.errors.Nome && <div id="feedback">{props.errors.Nome}</div>}
+                        {props.errors.nome && <div id="feedback">{props.errors.nome}</div>}
                     </div>
 
                     <div>
@@ -141,56 +152,56 @@ const LoginPage = () => {
                             type="text"
                             onChange={props.handleChange}
                             onBlur={props.handleBlur}
-                            value={props.values.Email}
-                            name="Email"
+                            value={props.values.email}
+                            name="email"
                             placeholder="E-mail"
                         />
-                        {props.errors.Email && <div id="feedback">{props.errors.Email}</div>}
+                        {props.errors.email && <div id="feedback">{props.errors.email}</div>}
                     </div>
                     <div>
                         <input
                             type="text"
                             onChange={props.handleChange}
                             onBlur={props.handleBlur}
-                            value={props.values.Senha}
-                            name="Senha"
+                            value={props.values.senha}
+                            name="senha"
                             placeholder="Senha"
                         />
-                        {props.errors.Senha && <div id="feedback">{props.errors.Senha}</div>}
+                        {props.errors.senha && <div id="feedback">{props.errors.senha}</div>}
                     </div>
                     <div>
                         <input
                             type="image"
                             onChange={props.handleChange}
                             onBlur={props.handleBlur}
-                            value={props.values.Certificado}
-                            name="Certificado"
+                            value={props.values.certificado}
+                            name="certificado"
                             placeholder="Foto do Certificado"
                             hidden
                         />
-                        {props.errors.Certificado && <div id="feedback">{props.errors.Certificado}</div>}
+                        {props.errors.certificado && <div id="feedback">{props.errors.certificado}</div>}
                     </div>
                     <div>
                         <input
                             type="text"
                             onChange={props.handleChange}
                             onBlur={props.handleBlur}
-                            value={props.values.Endereco}
-                            name="Endereço"
+                            value={props.values.endereco}
+                            name="endereço"
                             placeholder="Seu endereço"
                         />
-                        {props.errors.Endereco && <div id="feedback">{props.errors.Endereco}</div>}
+                        {props.errors.endereco && <div id="feedback">{props.errors.endereco}</div>}
                     </div>
                     <div>
                         <input
                             type="text"
                             onChange={props.handleChange}
                             onBlur={props.handleBlur}
-                            value={props.values.CPF}
-                            name="CPF"
+                            value={props.values.cpf}
+                            name="cpf"
                             placeholder="CPF"
                         />
-                        {props.errors.CPF && <div id="feedback">{props.errors.CPF}</div>}
+                        {props.errors.cpf && <div id="feedback">{props.errors.cpf}</div>}
                     </div>
                     <div>
                         <select
